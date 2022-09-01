@@ -2,16 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import { Pressable, StyleSheet, Text, View, ScrollView } from 'react-native';
 import * as React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { TouchableOpacity } from 'react-native-web';
 
 const HomeScreen = () => {
   return (
-    <ScrollView>
       <View style={styles.container}>
         <StatusBar style="auto" />
         <TitleBar/>
         <BlockMenu/>
       </View>
-      </ScrollView>
   );
 }
 
@@ -52,7 +51,7 @@ const BlockMenu = (props) => {
 
 const ExperimentBlock = (props) => {
   return (
-    <Pressable>
+    <TouchableOpacity>
       <View style={styles.ExperimentBlock}>
         <Text
         style={{
@@ -63,7 +62,7 @@ const ExperimentBlock = (props) => {
         }}
         >Experiment</Text>
       </View>
-    </Pressable>
+    </TouchableOpacity>
   );
 }
 
@@ -83,6 +82,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     maxHeight: 80,
     width: '100%',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    borderRadius: 10,
+    elevation: 7,
+    marginBottom: 10,
   },
   BlockMenu: {
     flexDirection: 'row',
@@ -100,5 +109,14 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 10,
     margin: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+
+    elevation: 7,
   },
 });
