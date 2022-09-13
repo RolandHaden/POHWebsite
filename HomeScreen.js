@@ -1,8 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, StyleSheet, Text, View, ScrollView } from 'react-native';
+import { Linking, Image, Pressable, StyleSheet, Text, View, ScrollView } from 'react-native';
 import * as React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-web';
+import { useNavigation } from "@react-navigation/native";
+
+
 
 const HomeScreen = () => {
   return (
@@ -33,6 +36,14 @@ const TitleBar = (props) => {
           fontSize: '15px',
         }}
       >An Independent Study by Davis Haden</Text>
+      <TouchableOpacity
+        onPress={() => {Linking.openURL('https://github.com/RolandHaden');}}
+      >
+        <Image 
+          style={{width: 110/2, height: 25/2, marginTop: 5}} 
+          source={require('./assets/github_h.png')}
+        />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -49,9 +60,10 @@ const BlockMenu = (props) => {
   );
 }
 
-const ExperimentBlock = (props) => {
+const ExperimentBlock = () => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => {navigation.navigate("Survey");}}>
       <View style={styles.ExperimentBlock}>
         <Text
         style={{
@@ -80,7 +92,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#c0a7fa',
     alignItems: 'center',
     justifyContent: 'center',
-    maxHeight: 80,
+    maxHeight: 100,
     width: '100%',
     shadowColor: "#000",
     shadowOffset: {
@@ -116,7 +128,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
-
     elevation: 7,
   },
 });
