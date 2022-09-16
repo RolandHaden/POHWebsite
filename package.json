@@ -1,8 +1,11 @@
 {
   "name": "poi_2022_v1",
   "version": "1.0.0",
+  "Homepage": "https://rolandhaden.github.io",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -23,7 +26,8 @@
     "react-native-web": "~0.18.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "gh-pages": "^4.0.0"
   },
   "private": true
 }
