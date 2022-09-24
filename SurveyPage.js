@@ -25,7 +25,6 @@ const TitleBar = (props) => {
         <Text
           style={{
             color: 'white',
-            fontFamily: 'avenir',
             adjustsFontSizeToFitHeight: true,
             fontSize: '30px',
           }}
@@ -33,7 +32,6 @@ const TitleBar = (props) => {
         <Text 
           style={{
             color: 'white',
-            fontFamily: 'avenir',
             adjustsFontSizeToFitHeight: true,
             fontSize: '15px',
           }}
