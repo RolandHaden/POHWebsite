@@ -9,8 +9,10 @@ import { useNavigation } from "@react-navigation/native";
 const SurveyPage = () => {
     return(
         <View style={styles.container}>
+          <View style={styles.horizontalContainer}>
             <BackArrow/>
             <TitleBar/>
+          </View>
         </View>
     );
 }
@@ -68,8 +70,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 8,
     },
+    horizontalContainer: {
+        width: '100%',
+        minHeight: 120,
+        flexDirection: "row",
+        backgroundColor: '#d2bfff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 8,
+    },
     titleBar: {
         flex: 1,
+        padding: 8,
         backgroundColor: '#c0a7fa',
         alignItems: 'center',
         justifyContent: 'center',
