@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen';
 import SurveyPage from './SurveyPage';
+import LoadingPage from './LoadingPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,11 @@ export default function App() {
           name = "Survey"
           component = {SurveyPage}
           screen = {SurveyPage}
+        />
+        <Stack.Screen
+          name = "Loading"
+          component = {LoadingPage}
+          screen = {LoadingPage}
         />
       </Stack.Navigator>
     </NavigationContainer>

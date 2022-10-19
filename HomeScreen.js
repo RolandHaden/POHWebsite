@@ -49,19 +49,17 @@ const TitleBar = (props) => {
 const BlockMenu = (props) => {
   return (
     <View style={styles.BlockMenu}>
-      <ExperimentBlock/>
-      <ExperimentBlock/>
-      <ExperimentBlock/>
-      <ExperimentBlock/>
-      <ExperimentBlock/>
+      <ExperimentBlock title="Loading Test" page="Loading"/>
+      <ExperimentBlock title="Product Assessment"/>
+      <ExperimentBlock title="App Survey" page="Survey"/>
     </View>
   );
 }
 
-const ExperimentBlock = () => {
+const ExperimentBlock = (props) => {
   const navigation = useNavigation();
   return (
-    <TouchableOpacity onPress={() => {navigation.navigate("Survey");}}>
+    <TouchableOpacity onPress={() => {navigation.navigate(props.page);}}>
       <View style={styles.ExperimentBlock}>
         <Text
         style={{
@@ -69,7 +67,7 @@ const ExperimentBlock = () => {
           adjustsFontSizeToFitHeight: true,
           fontSize: '20px',
         }}
-        >Experiment</Text>
+        >{props.title}</Text>
       </View>
     </TouchableOpacity>
   );
