@@ -23,15 +23,13 @@ const TitleBar = (props) => {
       <Text
         style={{
           color: 'white',
-          adjustsFontSizeToFitHeight: true,
-          fontSize: '30px',
+          fontSize: '180%',
         }}
       >Psychology of Interfaces</Text>
       <Text 
         style={{
           color: 'white',
-          adjustsFontSizeToFitHeight: true,
-          fontSize: '15px',
+          fontSize: '100%',
         }}
       >An Independent Study by Davis Haden</Text>
       <TouchableOpacity
@@ -50,7 +48,6 @@ const BlockMenu = (props) => {
   return (
     <View style={styles.BlockMenu}>
       <ExperimentBlock title="Loading Test" page="Loading"/>
-      <ExperimentBlock title="Product Assessment"/>
       <ExperimentBlock title="App Survey" page="Survey"/>
     </View>
   );
@@ -64,8 +61,7 @@ const ExperimentBlock = (props) => {
         <Text
         style={{
           color: 'black',
-          adjustsFontSizeToFitHeight: true,
-          fontSize: '20px',
+          fontSize: '120%',
         }}
         >{props.title}</Text>
       </View>

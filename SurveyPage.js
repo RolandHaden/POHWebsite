@@ -25,15 +25,13 @@ const TitleBar = (props) => {
         <Text
           style={{
             color: 'white',
-            adjustsFontSizeToFitHeight: true,
-            fontSize: '30px',
+            fontSize: '150%',
           }}
         >Psychology of Interfaces</Text>
         <Text 
           style={{
             color: 'white',
-            adjustsFontSizeToFitHeight: true,
-            fontSize: '15px',
+            fontSize: '80%',
           }}
         >An Independent Study by Davis Haden</Text>
         <TouchableOpacity

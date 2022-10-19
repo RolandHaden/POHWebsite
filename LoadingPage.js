@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from "@react-navigation/native";
 import LogRocket from 'logrocket';
 
+
 const LoadingPage = () => {
   //LogRocket.init('27hazz/poi');
   return(
@@ -30,15 +31,14 @@ const TitleBar = (props) => {
         <Text
           style={{
             color: 'white',
-            adjustsFontSizeToFitHeight: true,
-            fontSize: '30px',
+            fontSize: '150%',
           }}
+          numberOfLines={1}
         >Psychology of Interfaces</Text>
         <Text 
           style={{
             color: 'white',
-            adjustsFontSizeToFitHeight: true,
-            fontSize: '15px',
+            fontSize: '80%',
           }}
         >An Independent Study by Davis Haden</Text>
         <TouchableOpacity
@@ -69,7 +69,7 @@ const BackArrow = (props) => {
 const changeView = () => {
   setTimeout(function(){
  
-    //Put All Your Code Here, Which You Want To Execute After Some Delay Time.
+    //alert("Refresh");
   
   }, Math.random()*10*1000);
 }
@@ -85,7 +85,6 @@ const LoadingBlock = () => {
           <Text
           style={{
             color: 'white',
-            adjustsFontSizeToFitHeight: true,
             fontSize: '15px',
           }}
           >Please wait while the content loads...</Text>
@@ -93,7 +92,6 @@ const LoadingBlock = () => {
             <Text
             style={{
               color: 'white',
-              adjustsFontSizeToFitHeight: true,
               fontSize: '15px',
               marginTop: '10px',
             }}
@@ -126,7 +124,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         maxHeight: 100,
-        width: '100%',
+        maxWidth: '100%',
         shadowColor: "#000",
         shadowOffset: {
           width: 0,
