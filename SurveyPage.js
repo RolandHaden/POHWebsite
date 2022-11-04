@@ -24,13 +24,13 @@ const TitleBar = (props) => {
       <View style={styles.titleBar}>
         <Text
           style={{
-            color: 'white',
+            color: 'black',
             fontSize: '150%',
           }}
         >Psychology of Interfaces</Text>
         <Text 
           style={{
-            color: 'white',
+            color: 'black',
             fontSize: '80%',
           }}
         >An Independent Study by Davis Haden</Text>
@@ -52,7 +52,7 @@ const BackArrow = (props) => {
         <Icon.Button
             name="leftcircleo"
             color="white"
-            backgroundColor= '#d2bfff'
+            backgroundColor= '#734b5e'
             size={30}
             onPress={() => {navigation.navigate("Home");}}
         />
@@ -62,7 +62,7 @@ const BackArrow = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#d2bfff',
+        backgroundColor: '#734b5e',
         alignItems: 'center',
         padding: 8,
     },
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         width: '100%',
         minHeight: 120,
         flexDirection: "row",
-        backgroundColor: '#d2bfff',
+        backgroundColor: '#734b5e',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 8,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     titleBar: {
         flex: 1,
         padding: 8,
-        backgroundColor: '#c0a7fa',
+        backgroundColor: '#FFFFED',
         alignItems: 'center',
         justifyContent: 'center',
         maxHeight: 100,

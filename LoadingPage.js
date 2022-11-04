@@ -6,6 +6,8 @@ import { TouchableOpacity } from 'react-native-web';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from "@react-navigation/native";
 import LogRocket from 'logrocket';
+import { useState } from "react";
+
 
 
 const LoadingPage = () => {
@@ -25,19 +27,20 @@ const LoadingPage = () => {
 
 export default LoadingPage;
 
+
 const TitleBar = (props) => {
     return (
       <View style={styles.titleBar}>
         <Text
           style={{
-            color: 'white',
+            color: 'black',
             fontSize: '150%',
           }}
           numberOfLines={1}
         >Psychology of Interfaces</Text>
         <Text 
           style={{
-            color: 'white',
+            color: 'black',
             fontSize: '80%',
           }}
         >An Independent Study by Davis Haden</Text>
@@ -59,52 +62,74 @@ const BackArrow = (props) => {
         <Icon.Button
             name="leftcircleo"
             color="white"
-            backgroundColor= '#d2bfff'
+            backgroundColor= '#734b5e'
             size={30}
             onPress={() => {navigation.navigate("Home");}}
         />
     );
 }
 
-const changeView = () => {
-  setTimeout(function(){
- 
-    //alert("Refresh");
-  
-  }, Math.random()*10*1000);
-}
+
 
 const LoadingBlock = () => {
+const [waitBlock, setwaitBlock] = useState(true);
+    const changeView = () => {
+
+      setTimeout(function(){
+        setwaitBlock(false);
+      
+      }, Math.random()*20*1000);
+    }
     changeView();
-    return(
-      <View style={styles.loading}>
-        <Image 
-            style={{width: 50, height: 50, marginBottom: 20,}} 
-            source={require('./assets/loading.gif')}
+    if (waitBlock) {
+      return(
+        <View style={styles.loading}>
+          <Image 
+              style={{width: 50, height: 50, marginBottom: 20,}} 
+              source={require('./assets/loading.gif')}
+            />
+            <Text
+            style={{
+              color: 'black',
+              fontSize: '15px',
+            }}
+            >Please wait while the content loads...</Text>
+            <TouchableOpacity
+            onPress={() => {window.location.reload();}}
+            >
+              <Text
+              style={{
+                color: 'black',
+                fontSize: '15px',
+                marginTop: '10px',
+              }}
+              >Not working? Click here to refresh.</Text>
+            </TouchableOpacity>
+        </View>
+      ); 
+    }else{
+      return (
+        <View style={styles.noLoad}>
+          <Image 
+            style={{width: '50%', height: '100%', marginBottom: 10}} 
+            source={require('./assets/kermit.gif')}
           />
           <Text
           style={{
-            color: 'white',
-            fontSize: '15px',
+            color: 'black',
+            fontSize: '120%',
           }}
-          >Please wait while the content loads...</Text>
-          <TouchableOpacity>
-            <Text
-            style={{
-              color: 'white',
-              fontSize: '15px',
-              marginTop: '10px',
-            }}
-            >Not working? Click here to refresh.</Text>
-          </TouchableOpacity>
-      </View>
-    ); 
+          >Congrats! You stayed for the page to load! Now do a happy dance!</Text>
+        </View>
+      );
+    }
+    
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#d2bfff',
+        backgroundColor: '#734b5e',
         alignItems: 'center',
         padding: 8,
     },
@@ -112,7 +137,7 @@ const styles = StyleSheet.create({
         width: '100%',
         minHeight: 120,
         flexDirection: "row",
-        backgroundColor: '#d2bfff',
+        backgroundColor: '#734b5e',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 8,
@@ -120,7 +145,7 @@ const styles = StyleSheet.create({
     titleBar: {
         flex: 1,
         padding: 8,
-        backgroundColor: '#c0a7fa',
+        backgroundColor: '#FFFFED',
         alignItems: 'center',
         justifyContent: 'center',
         maxHeight: 100,
@@ -149,9 +174,21 @@ const styles = StyleSheet.create({
         maxwidth: 100,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#c0a7fa',
+        backgroundColor: '#FFFFED',
         borderRadius: 10,
         padding: 8,
+        shadowOpacity: 0.29,
+        shadowRadius: 10,
+      },
+      noLoad: {
+        flex: 1,
+        maxHeight: 350,
+        Width: '50%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#FFFFED',
+        borderRadius: 10,
+        padding: 40,
         shadowOpacity: 0.29,
         shadowRadius: 10,
       }
