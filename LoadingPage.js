@@ -77,7 +77,6 @@ const [waitBlock, setwaitBlock] = useState(true);
 
       setTimeout(function(){
         setwaitBlock(false);
-      
       }, Math.random()*20*1000);
     }
     changeView();

@@ -71,36 +71,90 @@ const DescBar = (props) => {
 }
 
 const BlockMenu = (props) => {
-  //<ExperimentBlock title="App Survey" page="Survey" />
   return (
     <View style={styles.BlockMenu}>
-      <ExperimentBlock title="Website Compatibility Check" page="Loading" desc="This page will analyze your browser and track compatibility for the website. Please do this before continuing to other activities"/>
+      <ExperimentBlock title="Website Compatibility Check" type='titleDesc' page="Loading" desc="This page will analyze your browser and track compatibility for the website. Please do this before continuing to other activities"/>
+      <ExperimentBlock title="TikTok Survey" type='tiktokImg' page="Survey"/>
+      <ExperimentBlock title="Shopping Game" type='gameImg' page="Game"/>
     </View>
   );
 }
 
 const ExperimentBlock = (props) => {
   const navigation = useNavigation();
-  return (
-    <TouchableOpacity onPress={() => {navigation.navigate(props.page);}}>
-      <View style={styles.ExperimentBlock}>
-        <Text
-        style={{
-          color: 'black',
-          fontSize: '120%',
-          textAlign: 'center',
-        }}
-        >{props.title}</Text>
-        <Text
-        style={{
-          color: 'black',
-          fontSize: '75%',
-          marginTop: 5,
-        }}
-        >{props.desc}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+  if (props.type == 'titleDesc'){
+    return (
+      <TouchableOpacity onPress={() => {navigation.navigate(props.page);}}>
+        <View style={styles.ExperimentBlock}>
+          <Text
+          style={{
+            color: 'black',
+            fontSize: '120%',
+            textAlign: 'center',
+          }}
+          >{props.title}</Text>
+          <Text
+          style={{
+            color: 'black',
+            fontSize: '75%',
+            marginTop: 5,
+          }}
+          >{props.desc}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }else if(props.type == 'tiktokImg'){
+    return (
+      <TouchableOpacity onPress={() => {navigation.navigate(props.page);}}>
+        <View style={styles.ExperimentBlock}>
+          <Text
+          style={{
+            color: 'black',
+            fontSize: '120%',
+            textAlign: 'center',
+          }}
+          >{props.title}</Text>
+          <Text
+          style={{
+            color: 'black',
+            fontSize: '75%',
+            marginTop: 5,
+          }}
+          >{props.desc}</Text>
+          <Image 
+              style={{width: '80%', height: '80%'}} 
+              source={require("./assets/tiktok.png")}
+            />
+        </View>
+      </TouchableOpacity>
+    );
+  }else if(props.type == 'gameImg'){
+    return (
+      <TouchableOpacity onPress={() => {navigation.navigate(props.page);}}>
+        <View style={styles.ExperimentBlock}>
+          <Text
+          style={{
+            color: 'black',
+            fontSize: '120%',
+            textAlign: 'center',
+          }}
+          >{props.title}</Text>
+          <Text
+          style={{
+            color: 'black',
+            fontSize: '75%',
+            marginTop: 5,
+            marginBottom: 10,
+          }}
+          >{props.desc}</Text>
+          <Image 
+              style={{width: '53%', height: '60%'}} 
+              source={require("./assets/shopping.png")}
+            />
+        </View>
+      </TouchableOpacity>
+    );
+  }
 }
 
 export default HomeScreen;
